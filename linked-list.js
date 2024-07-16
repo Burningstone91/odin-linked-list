@@ -1,13 +1,13 @@
 class LinkedList {
   constructor() {
-    this.head = null;
+    this.listHead = null;
   }
 
   append(value) {
-    if (this.head == null) {
+    if (this.listHead == null) {
       this.prepend(value);
     } else {
-      let currentNode = this.head;
+      let currentNode = this.listHead;
       while (currentNode.nextNode != null) {
         currentNode = currentNode.nextNode;
       }
@@ -17,16 +17,32 @@ class LinkedList {
 
   prepend(value) {
     let prev = null;
-    if (this.head != null) prev = this.head;
-    this.head = new Node(value);
-    this.head.nextNode = prev;
+    if (this.listHead != null) prev = this.listHead;
+    this.listHead = new Node(value);
+    this.listHead.nextNode = prev;
   }
 
-  size() {}
+  size() {
+    let count = 0;
+    let currentNode = this.listHead;
+    while (currentNode != null) {
+      currentNode = currentNode.nextNode;
+      count++;
+    }
+    return count;
+  }
 
-  head() {}
+  head() {
+    return this.listHead;
+  }
 
-  tail() {}
+  tail() {
+    let lastNode = this.listHead;
+    while (lastNode.nextNode != null) {
+      lastNode = lastNode.nextNode;
+    }
+    return lastNode;
+  }
 
   at(index) {}
 
@@ -54,4 +70,3 @@ const list = new LinkedList();
 list.append("dog");
 list.append("cat");
 list.prepend("mouse");
-console.log(list);
