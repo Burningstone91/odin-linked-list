@@ -44,7 +44,16 @@ class LinkedList {
     return lastNode;
   }
 
-  at(index) {}
+  at(index) {
+    let node = this.listHead;
+    for (let i = 0; i <= index; i++) {
+      node = node.nextNode;
+      if (node == null) {
+        return `No node exists at index ${index}!`;
+      }
+    }
+    return node;
+  }
 
   pop() {}
 
@@ -70,3 +79,4 @@ const list = new LinkedList();
 list.append("dog");
 list.append("cat");
 list.prepend("mouse");
+console.log(list.at(3));
