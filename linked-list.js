@@ -94,7 +94,16 @@ class LinkedList {
     return null;
   }
 
-  toString() {}
+  toString() {
+    let currentNode = this.listHead;
+    let string = "";
+    while (currentNode.nextNode != null) {
+      string += `( ${currentNode.value} ) => `;
+      currentNode = currentNode.nextNode;
+    }
+    string += "null";
+    return string;
+  }
 
   insertAt(value, index) {}
 
@@ -113,5 +122,4 @@ list.append("dog");
 list.append("cat");
 list.append("mouse");
 
-console.log(list.find("cat"));
-console.log(list.find("donkey"));
+console.log(list.toString());
