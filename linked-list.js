@@ -83,7 +83,16 @@ class LinkedList {
     return false;
   }
 
-  find(value) {}
+  find(value) {
+    let index = 0;
+    let currentNode = this.listHead;
+    while (currentNode.nextNode != null) {
+      if (currentNode.value == value) return index;
+      currentNode = currentNode.nextNode;
+      index++;
+    }
+    return null;
+  }
 
   toString() {}
 
@@ -103,5 +112,6 @@ const list = new LinkedList();
 list.append("dog");
 list.append("cat");
 list.append("mouse");
-console.log(list.contains("cat"));
-console.log(list.contains("horse"));
+
+console.log(list.find("cat"));
+console.log(list.find("donkey"));
