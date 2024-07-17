@@ -55,7 +55,24 @@ class LinkedList {
     return node;
   }
 
-  pop() {}
+  pop() {
+    let currentNode = this.listHead;
+    let prevNode = null;
+
+    if (currentNode == null) return "The list is empty";
+
+    while (currentNode.nextNode != null) {
+      prevNode = currentNode;
+      currentNode = currentNode.nextNode;
+    }
+
+    if (prevNode == null) {
+      this.listHead = null;
+      return;
+    } else {
+      prevNode.nextNode = null;
+    }
+  }
 
   contains(value) {}
 
@@ -78,5 +95,6 @@ class Node {
 const list = new LinkedList();
 list.append("dog");
 list.append("cat");
-list.prepend("mouse");
-console.log(list.at(3));
+list.append("mouse");
+list.pop();
+console.log(list);
