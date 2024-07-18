@@ -128,9 +128,12 @@ class Node {
 }
 
 const list = new LinkedList();
+
 list.append("dog");
 list.append("cat");
-list.append("mouse");
+list.append("parrot");
+list.append("hamster");
+list.append("snake");
+list.append("turtle");
 
-list.removeAt(2);
-console.log(list);
+console.log(list.toString());
