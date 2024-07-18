@@ -46,11 +46,11 @@ class LinkedList {
 
   at(index) {
     let node = this.listHead;
-    for (let i = 0; i <= index; i++) {
-      node = node.nextNode;
+    for (let i = 1; i <= index; i++) {
       if (node == null) {
         return `No node exists at index ${index}!`;
       }
+      node = node.nextNode;
     }
     return node;
   }
@@ -105,8 +105,16 @@ class LinkedList {
     return string;
   }
 
-  insertAt(value, index) {}
+  insertAt(value, index) {
+    console.log(this.at(0));
+    console.log(this.at(1));
+    console.log(this.at(2));
+    let prevNode = this.at(index - 1);
+    let nextNode = this.at(index);
 
+    prevNode.nextNode = new Node(value);
+    prevNode.nextNode.nextNode = nextNode;
+  }
   removeAt(index) {}
 }
 
@@ -122,4 +130,5 @@ list.append("dog");
 list.append("cat");
 list.append("mouse");
 
-console.log(list.toString());
+list.insertAt("tiger", 2);
+console.log(list);
